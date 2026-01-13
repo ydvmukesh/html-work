@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -24,6 +25,15 @@
     section {
         scroll-margin: 100px;
     }
+    /* CSS Code */
+    
+    .swiper-wrapper {
+        width: 100%;
+        height: max-content !important;
+        -webkit-transition-timing-function: linear !important;
+        transition-timing-function: linear !important;
+        position: relative;
+    }
 </style>
 
 <body>
@@ -31,48 +41,47 @@
         <header class="bg-white shadow-sm sticky top-0 z-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center py-4">
-                    <div class="flex items-center">
-                        <img src="Aiflowsync-logo.png" alt="" width="70" class="w-[40px] md:w-[70px]">
-                    </div>
-                    <nav class="hidden md:flex space-x-8"><a href="#services" class="text-gray-700 hover:text-blue-600 font-medium">Services</a><a href="#process" class="text-gray-700 hover:text-blue-600 font-medium">Process</a>
-                        <a href="#benefits" class="text-gray-700 hover:text-blue-600 font-medium">Benefits</a></nav>
-                    <div class="hidden md:flex items-center "><button class="bg-gradient-to-r from-[#1667ad] to-[#115199] text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-medium
-                            ">Book Free Consultation</button></div><button id="menu-toggle " class="md:hidden relative ">
-                            <!-- Hamburger Icon -->
-                            <svg id="icon-open " xmlns="http://www.w3.org/2000/svg " width="24 " height="24 "
-                                viewBox="0 0 24 24 " fill="none " stroke="currentColor "
-                                stroke-width="2 " stroke-linecap="round " stroke-linejoin="round "
-                                class="h-6 w-6 ">
-                                <path d="M4 12h16 "></path>
-                                <path d="M4 18h16 "></path>
-                                <path d="M4 6h16 "></path>
-                            </svg>
 
-                            <!-- Close Icon -->
-                            <svg id="icon-close " xmlns="http://www.w3.org/2000/svg " width="24 " height="24 "
-                                viewBox="0 0 24 24 " fill="none " stroke="currentColor "
-                                stroke-width="2 " stroke-linecap="round " stroke-linejoin="round "
-                                class="h-6 w-6 hidden ">
-                                <path d="M18 6 6 18 "></path>
-                                <path d="m6 6 12 12 "></path>
-                            </svg>
-                            </button>
+                    <!-- Logo + Tagline -->
+                    <div class="flex items-center gap-3">
+                        <img src="Aiflowsync-logo.png" alt="AI Flow Sync" class="w-[40px] md:w-[70px]">
+                        <!-- <img src="logo2.jpeg" alt="AI Flow Sync" class="w-[40px] md:w-[70px]"> -->
+                        <div class="hidden sm:block">
+                            <p class="text-sm text-gray-600 leading-tight">
+                                Automate Smarter.<br>
+                                <span class="font-semibold text-blue-700">Grow Faster.</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Desktop Menu -->
+                    <nav class="hidden md:flex space-x-8">
+                        <a href="/" class="font-medium text-gray-700 hover:text-blue-600">Home</a>
+                        <a href="#services" class="font-medium text-gray-700 hover:text-blue-600">Services</a>
+                        <a href="#pricing" class="font-medium text-gray-700 hover:text-blue-600">Pricing</a>
+                        <a href="#benefits" class="font-medium text-gray-700 hover:text-blue-600">Benefits</a>
+                        <a href="#contact" class="font-medium text-gray-700 hover:text-blue-600">Contact</a>
+                    </nav>
+
+                    <!-- Mobile Toggle -->
+                    <button id="menu-toggle" class="md:hidden">
+        <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
                 </div>
             </div>
-            <!-- Mobile Menu -->
-            <div id="mobile-menu " class="hidden md:hidden bg-white border-t absolute w-full left-0 top-full shadow-md ">
-                <nav class="px-6 py-4 space-y-4 ">
-                    <a href="#services" class="block text-gray-700 font-medium ">Services</a>
-                    <a href="#process" class="block text-gray-700 font-medium ">Process</a>
-                    <a href="#benefits" class="block text-gray-700 font-medium ">Benefits</a>
-
-                    <button class="w-full bg-gradient-to-r from-[#1667ad] to-[#115199] text-white px-6 py-3 rounded-lg font-medium ">
-      Book Free Consultation
-    </button>
+            <div id="mobile-menu" class="hidden md:hidden bg-white border-t absolute w-full left-0 top-full shadow-md">
+                <nav class="px-6 py-4 space-y-4 flex flex-col">
+                    <a href="/" class="font-medium text-gray-700 hover:text-blue-600">Home</a>
+                    <a href="#services" class="font-medium text-gray-700 hover:text-blue-600">Services</a>
+                    <a href="#pricing" class="font-medium text-gray-700 hover:text-blue-600">Pricing</a>
+                    <a href="#benefits" class="font-medium text-gray-700 hover:text-blue-600">Benefits</a>
+                    <a href="#contact" class="font-medium text-gray-700 hover:text-blue-600">Contact</a>
                 </nav>
             </div>
-
         </header>
+
         <!-- Hero Section -->
         <section class="relative py-16 overflow-hidden flex items-center ">
             <div class="absolute inset-0 ">
@@ -81,29 +90,69 @@
             </div>
             <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 w-full py-12 ">
                 <div class="text-center ">
-                    <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight ">Find Your Flow.<span class="block mt-2 bg-gradient-to-r from-[#0089ff] to-[#0089ff] bg-clip-text text-transparent ">Amplify Your Impact.</span></h1>
-                    <p class="text-lg md:text-xl text-blue-100 mb-12 max-w-4xl mx-auto leading-relaxed ">AI automation that turns hours into minutes for small and medium businesses.</p>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-5xl mx-auto ">
-                        <div class="text-center ">
-                            <div class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#0089ff] to-[#0089ff] bg-clip-text text-transparent mb-2 ">25+</div>
-                            <div class="text-sm md:text-base text-blue-100 font-medium ">Years Experience</div>
+                    <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight ">Find Your Flow.<span class="block mt-2 bg-gradient-to-r from-[#0089ff] to-[#0089ff] bg-clip-text text-transparent ">Multiply Your Results.</span></h1>
+                    <p class="text-lg md:text-xl text-blue-100 mb-12 max-w-4xl mx-auto leading-relaxed ">AI automation that turns hours of manual work into minutes for growing small and medium businesses.
+                    </p>
+
+
+
+
+                </div>
+            </div>
+        </section>
+        <!--HTML CODE-->
+        <div class="w-full relative mt-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="swiper progress-slide-carousel swiper-container relative">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="flex justify-center items-center">
+                                <img src="Make-Logo-RGB@2x-1.webp" class="h-8">
+                            </div>
                         </div>
-                        <div class="text-center ">
-                            <div class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#0089ff] to-[#0089ff] bg-clip-text text-transparent mb-2 ">100%</div>
-                            <div class="text-sm md:text-base text-blue-100 font-medium ">Dedicated</div>
+                        <div class="swiper-slide">
+                            <div class="flex justify-center items-center">
+                                <img src="Zapier_logo.svg.png" class="h-8">
+
+                            </div>
                         </div>
-                        <div class="text-center ">
-                            <div class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#0089ff] to-[#0089ff] bg-clip-text text-transparent mb-2 ">SMB</div>
-                            <div class="text-sm md:text-base text-blue-100 font-medium ">Focused</div>
+                        <div class="swiper-slide">
+                            <div class="flex justify-center items-center">
+                                <img src="N8n-logo-new.svg.png" class="h-8">
+                            </div>
                         </div>
-                        <div class="text-center ">
-                            <div class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#0089ff] to-[#0089ff] bg-clip-text text-transparent mb-2 ">AI</div>
-                            <div class="text-sm md:text-base text-blue-100 font-medium ">Powered</div>
+
+                        <div class="swiper-slide">
+                            <div class="flex justify-center items-center">
+                                <img src="UiPath_2019_Corporate_Logo.png" class="h-8">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="flex justify-center items-center">
+                                <img src="highlevel.png" class="h-8">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="flex justify-center items-center">
+                                <img src="northware-microsoft-power-platform.webp" class="h-8">
+
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="flex justify-center items-center">
+                                <img src="Salesforce.com_logo.svg.png" class="h-8">
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="flex justify-center items-center">
+                                <img src="UiPath_2019_Corporate_Logo.png" class="h-8">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
         <!-- Intro Section -->
         <section class="relative py-20 bg-white overflow-hidden ">
             <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
@@ -196,48 +245,44 @@
                     <div class="group bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-xl transition-all duration-300 ">
                         <div class="flex items-start gap-4 ">
                             <div class="flex-shrink-0 ">
-                                <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center "><svg xmlns="http://www.w3.org/2000/svg " width="24 " height="24 " viewBox="0 0 24 24 " fill="none " stroke="currentColor
-            " stroke-width="2 " stroke-linecap="round " stroke-linejoin="round " class="lucide lucide-circle-check-big h-6 w-6 text-indigo-600 " aria-hidden="true "><path d="M21.801 10A10 10 0 1 1 17 3.335 "></path><path d="m9 11 3 3L22 4 "></path></svg></div>
+                                <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center "><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin-icon lucide-map-pin"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></div>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-gray-900 mb-2 ">Effortless Scaling</h3>
-                                <p class="text-gray-600 leading-relaxed ">Grow naturally without adding complexity, stress, or friction to your daily operations.</p>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2 ">Australian-Based Support</h3>
+                                <p class="text-gray-600 leading-relaxed ">Local team providing personalized support and quick response times for Australian businesses.</p>
                             </div>
                         </div>
                     </div>
                     <div class="group bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-xl transition-all duration-300 ">
                         <div class="flex items-start gap-4 ">
                             <div class="flex-shrink-0 ">
-                                <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center "><svg xmlns="http://www.w3.org/2000/svg " width="24 " height="24 " viewBox="0 0 24 24 " fill="none " stroke="currentColor
-            " stroke-width="2 " stroke-linecap="round " stroke-linejoin="round " class="lucide lucide-circle-check-big h-6 w-6 text-indigo-600 " aria-hidden="true "><path d="M21.801 10A10 10 0 1 1 17 3.335 "></path><path d="m9 11 3 3L22 4 "></path></svg></div>
+                                <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center "><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mic-icon lucide-mic"><path d="M12 19v3"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><rect x="9" y="2" width="6" height="13" rx="3"/></svg></div>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-gray-900 mb-2 ">Responsive, Not Reactive</h3>
-                                <p class="text-gray-600 leading-relaxed ">Adapt to change smoothly instead of constantly fighting fires and forcing solutions.</p>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2 ">Voice AI Expertise</h3>
+                                <p class="text-gray-600 leading-relaxed ">Specialized knowledge in voice agent technology and natural language processing.</p>
                             </div>
                         </div>
                     </div>
                     <div class="group bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-xl transition-all duration-300 ">
                         <div class="flex items-start gap-4 ">
                             <div class="flex-shrink-0 ">
-                                <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center "><svg xmlns="http://www.w3.org/2000/svg " width="24 " height="24 " viewBox="0 0 24 24 " fill="none " stroke="currentColor
-            " stroke-width="2 " stroke-linecap="round " stroke-linejoin="round " class="lucide lucide-circle-check-big h-6 w-6 text-indigo-600 " aria-hidden="true "><path d="M21.801 10A10 10 0 1 1 17 3.335 "></path><path d="m9 11 3 3L22 4 "></path></svg></div>
+                                <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center "><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-panel-top-icon lucide-layout-panel-top"><rect width="18" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/></svg></div>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-gray-900 mb-2 ">Consistent, Sustainable Results</h3>
-                                <p class="text-gray-600 leading-relaxed ">Achieve reliable outcomes through balanced systems, not through grinding or pushing harder.</p>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2 ">Automation Results</h3>
+                                <p class="text-gray-600 leading-relaxed ">Measurable improvements in efficiency and cost savings through workflow automation.</p>
                             </div>
                         </div>
                     </div>
                     <div class="group bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-xl transition-all duration-300 ">
                         <div class="flex items-start gap-4 ">
                             <div class="flex-shrink-0 ">
-                                <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center "><svg xmlns="http://www.w3.org/2000/svg " width="24 " height="24 " viewBox="0 0 24 24 " fill="none " stroke="currentColor
-            " stroke-width="2 " stroke-linecap="round " stroke-linejoin="round " class="lucide lucide-circle-check-big h-6 w-6 text-indigo-600 " aria-hidden="true "><path d="M21.801 10A10 10 0 1 1 17 3.335 "></path><path d="m9 11 3 3L22 4 "></path></svg></div>
+                                <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center "><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cog-icon lucide-cog"><path d="M11 10.27 7 3.34"/><path d="m11 13.73-4 6.93"/><path d="M12 22v-2"/><path d="M12 2v2"/><path d="M14 12h8"/><path d="m17 20.66-1-1.73"/><path d="m17 3.34-1 1.73"/><path d="M2 12h2"/><path d="m20.66 17-1.73-1"/><path d="m20.66 7-1.73 1"/><path d="m3.34 17 1.73-1"/><path d="m3.34 7 1.73 1"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="12" r="8"/></svg></div>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-gray-900 mb-2 ">Systems That Move With You</h3>
-                                <p class="text-gray-600 leading-relaxed ">Your operations stay fluid and responsive, adjusting naturally as your business evolves.</p>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2 ">Rapid Implementation</h3>
+                                <p class="text-gray-600 leading-relaxed ">Quick deployment of voice agents and automation solutions for immediate business value.</p>
                             </div>
                         </div>
                     </div>
@@ -252,39 +297,378 @@
                     <p class="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto ">We build intelligent systems that multiply your team's impact.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 ">
-                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 ">
-                        <div class="bg-blue-100 p-4 rounded-xl w-fit mb-6 "><svg xmlns="http://www.w3.org/2000/svg " width="24 " height="24 " viewBox="0 0 24 24 " fill="none " stroke="currentColor " stroke-width="2 " stroke-linecap="round
-            " stroke-linejoin="round " class="lucide lucide-circle-check-big h-8 w-8 text-blue-600 " aria-hidden="true "><path d="M21.801 10A10 10 0 1 1 17 3.335 "></path><path d="m9 11 3 3L22 4 "></path></svg></div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3 ">Release Repetitive Strain</h3>
-                        <p class="text-gray-600 mb-6 ">Free your team from draining, repetitive tasks. When you remove friction, their energy and focus naturally flow toward high-impact work.</p>
-                        <ul class="space-y-3 ">
-                            <li class="flex items-start text-gray-700 "><span class="text-blue-500 mr-2 ">●</span><span>Email and document processing</span></li>
-                            <li class="flex items-start text-gray-700 "><span class="text-blue-500 mr-2 ">●</span><span>Customer service automation</span></li>
-                            <li class="flex items-start text-gray-700 "><span class="text-blue-500 mr-2 ">●</span><span>Data entry and reporting</span></li>
+
+                    <!-- Basic Process Automation -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col flex-grow">
+                        <div class="bg-blue-100 p-4 rounded-xl w-fit mb-6 ">
+                            <!-- Workflow Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="lucide lucide-git-branch h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/>  </svg>
+                        </div>
+                        <div class="mb-2">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3 ">Basic Process Automation</h3>
+                            <p class="text-gray-600 ">
+                                Connect 2–3 apps to eliminate manual data entry and save hours every week. Results delivered in <strong>1–2 weeks</strong>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Email Marketing Automation -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col flex-grow">
+
+                        <div class="bg-cyan-100 p-4 rounded-xl w-fit mb-6 ">
+                            <!-- Mail Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="lucide lucide-mail h-8 w-8 text-cyan-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="m22 6-10 7L2 6"/>
+            </svg>
+                        </div>
+                        <div class="mb-2">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3 ">Email Marketing Automation</h3>
+                            <p class="text-gray-600 ">
+                                Automated follow-ups and newsletters that keep clients engaged with minimal effort. Ready within <strong>1 week</strong>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Form & Data Collection -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col flex-grow">
+                        <div class="bg-green-100 p-4 rounded-xl w-fit mb-6 ">
+                            <!-- File Text Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="lucide lucide-file-text h-8 w-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <path d="M14 2v6h6"/>
+                <path d="M16 13H8"/>
+                <path d="M16 17H8"/>
+            </svg>
+                        </div>
+                        <div class="mb-2">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3 ">Form & Data Collection</h3>
+                            <p class="text-gray-600 ">
+                                Digital forms that automatically organize customer information and survey responses. Implemented in <strong>1 week</strong>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Appointment Scheduling -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col flex-grow">
+                        <div class="bg-purple-100 p-4 rounded-xl w-fit mb-6 ">
+                            <!-- Calendar Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="lucide lucide-calendar-check h-8 w-8 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <rect x=
+                "3" y="4" width="18" height="18" rx="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+                <path d="m9 16 2 2 4-4"/>
+            </svg>
+                        </div>
+                        <div class="mb-2">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3 ">Appointment Scheduling</h3>
+                            <p class="text-gray-600 ">
+                                Simple booking systems with automatic reminders to reduce no-shows by up to <strong>40%</strong>. See results in <strong>1–2 weeks</strong>.
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <!-- AI Voice Agents -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col flex-grow">
+                        <div class="bg-indigo-100 p-4 rounded-xl w-fit mb-6 ">
+                            <!-- Headset Icon -->
+
+                            <svg xmlns="http://www.w3.org/2000/svg" class="lucide lucide-headphones h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path d="M3 18v-6a9 9 0 0118 0v6"/>
+                <path d="M21 19a2 2 0 01-2 2h-1v-6h1a2 2 0 012 2z"/>
+                <path d="M3 19a2 2 0 002 2h1v-6H5a2 2 0 00-2 2z"/>
+            </svg>
+                        </div>
+                        <div class="mb-2">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3 ">AI Voice Agents</h3>
+                            <p class="text-gray-600 mb-6 ">
+                                24/7 AI receptionists for tradies, healthcare providers, and NDIS services that never miss emergency calls and handle inquiries with authentic Australian voices.
+                            </p>
+                        </div>
+                        <ul class="space-y-3 mt-auto ">
+                            <li class="flex items-start text-gray-700 "><span class="text-indigo-500 mr-2 ">●</span><span>Emergency Call Answering (24/7)</span></li>
+                            <li class="flex items-start text-gray-700 "><span class="text-indigo-500 mr-2 ">●</span><span>Appointment Booking</span></li>
+                            <li class="flex items-start text-gray-700 "><span class="text-indigo-500 mr-2 ">●</span><span>Information Capture</span></li>
+                            <li class="flex items-start text-gray-700 "><span class="text-indigo-500 mr-2 ">●</span><span>Basic customer service</span></li>
                         </ul>
                     </div>
-                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 ">
-                        <div class="bg-cyan-100 p-4 rounded-xl w-fit mb-6 "><svg xmlns="http://www.w3.org/2000/svg " width="24 " height="24 " viewBox="0 0 24 24 " fill="none " stroke="currentColor " stroke-width="2 " stroke-linecap="round
-            " stroke-linejoin="round " class="lucide lucide-users h-8 w-8 text-cyan-600 " aria-hidden="true "><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2 "></path><path d="M16 3.128a4 4 0 0 1 0 7.744 "></path><path d="M22 21v-2a4 4 0 0 0-3-3.87 "></path><circle cx="9
-            " cy="7 " r="4 "></circle></svg></div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3 ">Always-On Support, Zero Burnout</h3>
-                        <p class="text-gray-600 mb-6 ">Serve customers around the clock without exhausting your team. Intelligent systems respond instantly while your people stay fresh and focused.</p>
-                        <ul class="space-y-3 ">
-                            <li class="flex items-start text-gray-700 "><span class="text-cyan-500 mr-2 ">●</span><span>Smart chatbot integration</span></li>
-                            <li class="flex items-start text-gray-700 "><span class="text-cyan-500 mr-2 ">●</span><span>Knowledge base automation</span></li>
-                            <li class="flex items-start text-gray-700 "><span class="text-cyan-500 mr-2 ">●</span><span>Customer inquiry routing</span></li>
+
+                    <!-- Business Automation -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col flex-grow">
+                        <div class="bg-blue-100 p-4 rounded-xl w-fit mb-6 ">
+                            <!-- Settings Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="lucide lucide-settings h-8 w-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path d=
+                "M12 15a3 3 0 100-6 3 3 0 000 6z"/>
+                <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09a1.65 1.65 0 00-1-1.51 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09a1.65 1.65 0 001.51-1 1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51h.09a1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9c0 .67.39 1.27 1 1.51H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/>
+            </svg>
+                        </div>
+                        <div class="mb-2">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3 ">Business Automation</h3>
+                            <p class="text-gray-600 mb-6 ">
+                                Simple workflow automation solutions that connect your business tools and eliminate repetitive paperwork.
+                            </p>
+                        </div>
+                        <ul class="space-y-3 mt-auto ">
+                            <li class="flex items-start text-gray-700 "><span class="text-blue-500 mr-2 ">●</span><span>Email Automation</span></li>
+                            <li class="flex items-start text-gray-700 "><span class="text-blue-500 mr-2 ">●</span><span>Appointment Reminders</span></li>
+                            <li class="flex items-start text-gray-700 "><span class="text-blue-500 mr-2 ">●</span><span>Basic Documentation</span></li>
+                            <li class="flex items-start text-gray-700 "><span class="text-blue-500 mr-2 ">●</span><span>Email Follow-ups</span></li>
                         </ul>
                     </div>
-                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 ">
-                        <div class="bg-green-100 p-4 rounded-xl w-fit mb-6 "><svg xmlns="http://www.w3.org/2000/svg " width="24 " height="24 " viewBox="0 0 24 24 " fill="none " stroke="currentColor " stroke-width="2 " stroke-linecap="round
-            " stroke-linejoin="round " class="lucide lucide-trending-up h-8 w-8 text-green-600 " aria-hidden="true "><path d="M16 7h6v6 "></path><path d="m22 7-8.5 8.5-5-5L2 17 "></path></svg></div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-3 ">Clear Vision Through Better Flow</h3>
-                        <p class="text-gray-600 mb-6 ">Stop forcing decisions from incomplete data. When information flows clearly and continuously, the right path becomes obvious.</p>
-                        <ul class="space-y-3 ">
-                            <li class="flex items-start text-gray-700 "><span class="text-green-500 mr-2 ">●</span><span>Automated reporting dashboards</span></li>
-                            <li class="flex items-start text-gray-700 "><span class="text-green-500 mr-2 ">●</span><span>Predictive analytics</span></li>
-                            <li class="flex items-start text-gray-700 "><span class="text-green-500 mr-2 ">●</span><span>Performance optimization</span></li>
+                    <!-- Customer Management Automation -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col flex-grow">
+                        <div class="bg-emerald-100 p-4 rounded-xl w-fit mb-6 ">
+                            <!-- Users / CRM Icon -->
+
+                            <svg xmlns="http://www.w3.org/2000/svg" class="lucide lucide-users h-8 w-8 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+                        </div>
+                        <div class="mb-2">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3 ">Customer Management Automation</h3>
+                            <p class="text-gray-600 mb-6 ">
+                                Perfect for service businesses that want to capture every lead and keep customers happy with automated communication.
+                            </p>
+                        </div>
+                        <ul class="space-y-3 mt-auto ">
+                            <li class="flex items-start text-gray-700 "><span class="text-emerald-500 mr-2 ">●</span><span>Lead capture & follow-up</span></li>
+                            <li class="flex items-start text-gray-700 "><span class="text-emerald-500 mr-2 ">●</span><span>Customer communication</span></li>
+                            <li class="flex items-start text-gray-700 "><span class="text-emerald-500 mr-2 ">●</span><span>Appointment management</span></li>
+                            <li class="flex items-start text-gray-700 "><span class="text-emerald-500 mr-2 ">●</span><span>Confirmation messages</span></li>
                         </ul>
+                    </div>
+
+                    <!-- AI Voice Assistant -->
+                    <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col flex-grow">
+                        <div class="bg-rose-100 p-4 rounded-xl w-fit mb-6 ">
+
+                            <!-- Mic / Voice Assistant Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="lucide lucide-mic h-8 w-8 text-rose-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path d="M12 1v11a3 3 0 0 0 3-3V4a3 3 0 0 0-6 0v5a3 3 0 0 0 3 3z"/>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                <path d="M12 19v4"/>
+            </svg>
+                        </div>
+                        <div class="mb-2">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3 ">AI Voice Assistant</h3>
+                            <p class="text-gray-600 mb-6 ">
+                                Add a professional AI voice assistant to your website to capture leads 24/7 and answer customer questions instantly.
+                            </p>
+                        </div>
+                        <ul class="space-y-3 mt-auto ">
+                            <li class="flex items-start text-gray-700 "><span class="text-rose-500 mr-2 ">●</span><span>Website integration</span></li>
+                            <li class="flex items-start text-gray-700 "><span class="text-rose-500 mr-2 ">●</span><span>Customer support</span></li>
+                            <li class="flex items-start text-gray-700 "><span class="text-rose-500 mr-2 ">●</span><span>Appointment booking</span></li>
+                            <li class="flex items-start text-gray-700 "><span class="text-rose-500 mr-2 ">●</span><span>Testing & training</span></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <section id="pricing" class="relative py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 ">Pricing</h2>
+                    <p class="text-lg md:text-xl text-gray-700 max-w-4xl mx-auto">We build intelligent systems that multiply your team's impact.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto mb-8">
+                    <!-- Email Marketing Automation -->
+                    <div class="group p-4 md:p-6 bg-white border border-gray-200 rounded-xl hover:border-[#1667ad] transition-all duration-300 hover:shadow-xl hover:shadow-[#1667ad]/10" style="opacity: 1; transform: none;">
+                        <div class="text-center mb-4">
+                            <div class="w-12 h-12 md:w-14 md:h-14 mx-auto mb-3 rounded-lg bg-gradient-to-br from-[#1667ad] to-[#115199] flex items-center justify-center text-lg md:text-xl group-hover:scale-110 transition-transform duration-300">
+                                <span class="">📧</span>
+                            </div>
+                            <h4 class="text-base md:text-lg font-semibold mb-2 text-gray-900">Email Marketing Automation</h4>
+                            <p class="text-xs md:text-sm text-gray-600 mb-3">Complete email marketing and lead nurturing system</p>
+                            <div class="bg-gradient-to-br from-[#1667ad]/5 to-[#115199]/5 rounded-lg p-2 md:p-3 mb-3 border border-[#1667ad]/20">
+                                <div class="flex items-center justify-center gap-1 md:gap-2 mb-1">
+                                    <span class="text-lg md:text-xl font-bold text-[#1667ad]">$199</span>
+                                    <span class="text-gray-600 text-xs md:text-sm">/month</span>
+                                </div>
+                                <div class="text-xs text-gray-500">+ $299 setup</div>
+                            </div>
+                        </div>
+                        <ul class="space-y-1 md:space-y-2 mb-4 text-left">
+                            <li class="flex items-start gap-2 text-xs md:text-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 md:w-4 md:h-4 text-[#1667ad] flex-shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><path d="m9 11 3 3L22 4"></path></svg>
+                                <span>Welcome sequences &amp; newsletters</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-xs md:text-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 md:w-4 md:h-4 text-[#1667ad] flex-shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><path d="m9 11 3 3L22 4"></path></svg>
+                                <span>Lead nurturing workflows</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-xs md:text-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 md:w-4 md:h-4 text-[#1667ad] flex-shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><path d="m9 11 3 3L22 4"></path></svg>
+                                <span>Campaign performance tracking</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-xs md:text-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 md:w-4 md:h-4 text-[#1667ad] flex-shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><path d="m9 11 3 3L22 4"></path></svg>
+                                <span>Mailchimp/ConvertKit integration</span>
+                            </li>
+                        </ul>
+                        <a class="inline-flex items-center justify-center text-responsive-base font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1667ad] focus-visible:shadow-md disabled:pointer-events-none disabled:opacity-50 touch-manipulation bg-gradient-to-r from-[#1667ad] to-[#115199] hover:from-[#115199] hover:to-[#0d4178] text-white shadow-md hover:shadow-lg h-10 px-4 rounded-md w-full text-xs md:text-sm"
+                            href="/consultation?service=email-marketing-automation">Choose Package</a>
+                    </div>
+
+                    <!-- CRM & Lead Management -->
+                    <div class="group p-4 md:p-6 bg-white border border-gray-200 rounded-xl hover:border-[#1667ad] transition-all duration-300 hover:shadow-xl hover:shadow-[#1667ad]/10" style="opacity: 1; transform: none;">
+                        <div class="text-center mb-4">
+                            <div class="w-12 h-12 md:w-14 md:h-14 mx-auto mb-3 rounded-lg bg-gradient-to-br from-[#1667ad] to-[#115199] flex items-center justify-center text-lg md:text-xl group-hover:scale-110 transition-transform duration-300">
+                                <span class="">🎯</span>
+                            </div>
+                            <h4 class="text-base md:text-lg font-semibold mb-2 text-gray-900">CRM &amp; Lead Management</h4>
+                            <p class="text-xs md:text-sm text-gray-600 mb-3">Automated lead capture and sales pipeline management</p>
+                            <div class="bg-gradient-to-br from-[#1667ad]/5 to-[#115199]/5 rounded-lg p-2 md:p-3 mb-3 border border-[#1667ad]/20">
+                                <div class="flex items-center justify-center gap-1 md:gap-2 mb-1">
+                                    <span class="text-lg md:text-xl font-bold text-[#1667ad]">$199</span>
+                                    <span class="text-gray-600 text-xs md:text-sm">/month</span>
+                                </div>
+                                <div class="text-xs text-gray-500">+ $299 setup</div>
+                            </div>
+                        </div>
+                        <ul class="space-y-1 md:space-y-2 mb-4 text-left">
+                            <li class="flex items-start gap-2 text-xs md:text-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 md:w-4 md:h-4 text-[#1667ad] flex-shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><path d="m9 11 3 3L22 4"></path></svg>
+                                <span>Lead capture &amp; qualification</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-xs md:text-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 md:w-4 md:h-4 text-[#1667ad] flex-shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><path d="m9 11 3 3L22 4"></path></svg>
+                                <span>Sales pipeline automation</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-xs md:text-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 md:w-4 md:h-4 text-[#1667ad] flex-shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><path d="m9 11 3 3L22 4"></path></svg>
+                                <span>Contact data enrichment</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-xs md:text-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 md:w-4 md:h-4 text-[#1667ad] flex-shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><path d="m9 11 3 3L22 4"></path></svg>
+                                <span>HubSpot/Salesforce integration</span>
+                            </li>
+                        </ul>
+                        <a class="inline-flex items-center justify-center text-responsive-base font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1667ad] focus-visible:shadow-md disabled:pointer-events-none disabled:opacity-50 touch-manipulation bg-gradient-to-r from-[#1667ad] to-[#115199] hover:from-[#115199] hover:to-[#0d4178] text-white shadow-md hover:shadow-lg h-10 px-4 rounded-md w-full text-xs md:text-sm"
+                            href="/consultation?service=crm-lead-management">Choose Package</a>
+                    </div>
+
+                    <!-- Social Media Automation -->
+                    <div class="group p-4 md:p-6 bg-white border border-gray-200 rounded-xl hover:border-[#1667ad] transition-all duration-300 hover:shadow-xl hover:shadow-[#1667ad]/10" style="opacity: 1; transform: none;">
+                        <div class="text-center mb-4">
+                            <div class="w-12 h-12 md:w-14 md:h-14 mx-auto mb-3 rounded-lg bg-gradient-to-br from-[#1667ad] to-[#115199] flex items-center justify-center text-lg md:text-xl group-hover:scale-110 transition-transform duration-300">
+                                <span class="">📱</span>
+                            </div>
+                            <h4 class="text-base md:text-lg font-semibold mb-2 text-gray-900">Social Media Automation</h4>
+                            <p class="text-xs md:text-sm text-gray-600 mb-3">Multi-platform content publishing and management</p>
+                            <div class="bg-gradient-to-br from-[#1667ad]/5 to-[#115199]/5 rounded-lg p-2 md:p-3 mb-3 border border-[#1667ad]/20">
+                                <div class="flex items-center justify-center gap-1 md:gap-2 mb-1">
+                                    <span class="text-lg md:text-xl font-bold text-[#1667ad]">$199</span>
+                                    <span class="text-gray-600 text-xs md:text-sm">/month</span>
+                                </div>
+                                <div class="text-xs text-gray-500">+ $299 setup</div>
+                            </div>
+                        </div>
+                        <ul class="space-y-1 md:space-y-2 mb-4 text-left">
+                            <li class="flex items-start gap-2 text-xs md:text-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 md:w-4 md:h-4 text-[#1667ad] flex-shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><path d="m9 11 3 3L22 4"></path></svg>
+                                <span>Multi-platform content publishing</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-xs md:text-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 md:w-4 md:h-4 text-[#1667ad] flex-shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><path d="m9 11 3 3L22 4"></path></svg>
+                                <span>AI content generation</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-xs md:text-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 md:w-4 md:h-4 text-[#1667ad] flex-shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><path d="m9 11 3 3L22 4"></path></svg>
+                                <span>Content scheduling</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-xs md:text-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 md:w-4 md:h-4 text-[#1667ad] flex-shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><path d="m9 11 3 3L22 4"></path></svg>
+                                <span>Instagram/Facebook/LinkedIn/Twitter</span>
+                            </li>
+                        </ul>
+                        <a class="inline-flex items-center justify-center text-responsive-base font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1667ad] focus-visible:shadow-md disabled:pointer-events-none disabled:opacity-50 touch-manipulation bg-gradient-to-r from-[#1667ad] to-[#115199] hover:from-[#115199] hover:to-[#0d4178] text-white shadow-md hover:shadow-lg h-10 px-4 rounded-md w-full text-xs md:text-sm"
+                            href="/consultation?service=social-media-automation">Choose Package</a>
+                    </div>
+
+                    <!-- Invoice & Payment Automation -->
+                    <div class="group p-4 md:p-6 bg-white border border-gray-200 rounded-xl hover:border-[#1667ad] transition-all duration-300 hover:shadow-xl hover:shadow-[#1667ad]/10" style="opacity: 1; transform: none;">
+                        <div class="text-center mb-4">
+                            <div class="w-12 h-12 md:w-14 md:h-14 mx-auto mb-3 rounded-lg bg-gradient-to-br from-[#1667ad] to-[#115199] flex items-center justify-center text-lg md:text-xl group-hover:scale-110 transition-transform duration-300">
+                                <span class="">💰</span>
+                            </div>
+                            <h4 class="text-base md:text-lg font-semibold mb-2 text-gray-900">Invoice &amp; Payment Automation</h4>
+                            <p class="text-xs md:text-sm text-gray-600 mb-3">Streamlined billing and payment processing</p>
+                            <div class="bg-gradient-to-br from-[#1667ad]/5 to-[#115199]/5 rounded-lg p-2 md:p-3 mb-3 border border-[#1667ad]/20">
+                                <div class="flex items-center justify-center gap-1 md:gap-2 mb-1">
+                                    <span class="text-lg md:text-xl font-bold text-[#1667ad]">$199</span>
+                                    <span class="text-gray-600 text-xs md:text-sm">/month</span>
+                                </div>
+                                <div class="text-xs text-gray-500">+ $299 setup</div>
+                            </div>
+                        </div>
+                        <ul class="space-y-1 md:space-y-2 mb-4 text-left">
+                            <li class="flex items-start gap-2 text-xs md:text-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 md:w-4 md:h-4 text-[#1667ad] flex-shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><path d="m9 11 3 3L22 4"></path></svg>
+                                <span>Automated invoice generation</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-xs md:text-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 md:w-4 md:h-4 text-[#1667ad] flex-shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><path d="m9 11 3 3L22 4"></path></svg>
+                                <span>Payment reminder sequences</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-xs md:text-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 md:w-4 md:h-4 text-[#1667ad] flex-shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><path d="m9 11 3 3L22 4"></path></svg>
+                                <span>Expense tracking</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-xs md:text-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 md:w-4 md:h-4 text-[#1667ad] flex-shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><path d="m9 11 3 3L22 4"></path></svg>
+                                <span>QuickBooks/Xero integration</span>
+                            </li>
+                        </ul>
+                        <a class="inline-flex items-center justify-center text-responsive-base font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1667ad] focus-visible:shadow-md disabled:pointer-events-none disabled:opacity-50 touch-manipulation bg-gradient-to-r from-[#1667ad] to-[#115199] hover:from-[#115199] hover:to-[#0d4178] text-white shadow-md hover:shadow-lg h-10 px-4 rounded-md w-full text-xs md:text-sm"
+                            href="/consultation?service=invoice-payment-automation">Choose Package</a>
+                    </div>
+
+                    <!-- E-commerce Operations -->
+                    <div class="group p-4 md:p-6 bg-white border border-gray-200 rounded-xl hover:border-[#1667ad] transition-all duration-300 hover:shadow-xl hover:shadow-[#1667ad]/10" style="opacity: 1; transform: none;">
+                        <div class="text-center mb-4">
+                            <div class="w-12 h-12 md:w-14 md:h-14 mx-auto mb-3 rounded-lg bg-gradient-to-br from-[#1667ad] to-[#115199] flex items-center justify-center text-lg md:text-xl group-hover:scale-110 transition-transform duration-300">
+                                <span class="">🛒</span>
+                            </div>
+                            <h4 class="text-base md:text-lg font-semibold mb-2 text-gray-900">E-commerce Operations</h4>
+                            <p class="text-xs md:text-sm text-gray-600 mb-3">Complete online store automation system</p>
+                            <div class="bg-gradient-to-br from-[#1667ad]/5 to-[#115199]/5 rounded-lg p-2 md:p-3 mb-3 border border-[#1667ad]/20">
+                                <div class="flex items-center justify-center gap-1 md:gap-2 mb-1">
+                                    <span class="text-lg md:text-xl font-bold text-[#1667ad]">$199</span>
+                                    <span class="text-gray-600 text-xs md:text-sm">/month</span>
+                                </div>
+                                <div class="text-xs text-gray-500">+ $299 setup</div>
+                            </div>
+                        </div>
+                        <ul class="space-y-1 md:space-y-2 mb-4 text-left">
+                            <li class="flex items-start gap-2 text-xs md:text-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 md:w-4 md:h-4 text-[#1667ad] flex-shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><path d="m9 11 3 3L22 4"></path></svg>
+                                <span>Order processing automation</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-xs md:text-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 md:w-4 md:h-4 text-[#1667ad] flex-shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><path d="m9 11 3 3L22 4"></path></svg>
+                                <span>Inventory management</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-xs md:text-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 md:w-4 md:h-4 text-[#1667ad] flex-shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><path d="m9 11 3 3L22 4"></path></svg>
+                                <span>Customer review requests</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-xs md:text-sm">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3 h-3 md:w-4 md:h-4 text-[#1667ad] flex-shrink-0 mt-0.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><path d="m9 11 3 3L22 4"></path></svg>
+                                <span>Shopify/WooCommerce integration</span>
+                            </li>
+                        </ul>
+                        <a class="inline-flex items-center justify-center text-responsive-base font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1667ad] focus-visible:shadow-md disabled:pointer-events-none disabled:opacity-50 touch-manipulation bg-gradient-to-r from-[#1667ad] to-[#115199] hover:from-[#115199] hover:to-[#0d4178] text-white shadow-md hover:shadow-lg h-10 px-4 rounded-md w-full text-xs md:text-sm"
+                            href="/consultation?service=ecommerce-operations">Choose Package</a>
                     </div>
                 </div>
             </div>
@@ -408,38 +792,173 @@
             </div>
         </section>
         <!-- contact section -->
-        <section id="contact" class="relative py-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 overflow-hidden ">
-            <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 ">
-                <div class="relative ">
-                    <div class="absolute inset-0 bg-gradient-to-r from-[#1667ad] to-[#115199] rounded-3xl opacity-95 blur-xl "></div>
-                    <div class="relative bg-gradient-to-r from-[#1667ad] to-[#115199] rounded-3xl p-10 md:p-16 shadow-2xl ">
-                        <div class="text-center mb-10 ">
-                            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 ">Ready to Find Your Flow?</h2>
-                            <p class="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto ">Let's start a conversation about your business and explore how AI and automation can transform your operations.</p>
+        <section id="contact" class="relative py-20 bg-gradient-to-brs from-blue-50 via-indigo-50 to-purple-50 overflow-hidden ">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
+                <div class="grid grid-cols-1 gap-8 lg:grid-cols-2">
+                    <div class="flex flex-col space-y-6">
+                        <div>
+                            <h2 class="text-2xl font-bold mb-6">Get in Touch</h2>
+                            <p class="text-muted-foreground leading-relaxed">We're always happy to hear from you. Whether you have a question about products, orders, or anything else, our team is ready to answer all your questions.</p>
                         </div>
-                        <div class="space-y-6 ">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 ">
-                                <div><input type="text " id="name " placeholder="Your Name " required=" " class="w-full px-6 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl text-white placeholder-blue-50 focus:ring-2 focus:ring-white/50
-            focus:border-white/30 transition-all duration-300 " name="name"></div>
-                                <div><input type="email " id="email " placeholder="Email Address " required=" " class="w-full px-6 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl text-white placeholder-blue-50 focus:ring-2 focus:ring-white/50
-            focus:border-white/30 transition-all duration-300 " name="email "></div>
+                        <div class="space-y-4">
+                            <div data-slot="card" class="bg-muted/30 text-card-foreground flex flex-col gap-2 sm:gap-4 rounded-xl border py-0 shadow-sm">
+                                <div data-slot="card-content" class="md:px-4 flex items-start gap-4 p-6">
+                                    <div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail size-6"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg></div>
+                                    <div>
+                                        <h3 class="font-semibold mb-1">Email</h3>
+                                        <p class="text-sm text-muted-foreground">info@aiflowsync.com.au
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
-                            <div><input type="text " id="company " placeholder="Company Name " class="w-full px-6 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl text-white placeholder-blue-50 focus:ring-2 focus:ring-white/50 focus:border-white/30
-            transition-all duration-300 " name="company "></div>
-                            <div><textarea id="message " name="message " rows="5 " placeholder="Tell me about your business and what you 'd like to achieve..." class="w-full px-6 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl text-white placeholder-blue-50 focus:ring-2 focus:ring-white/50 focus:border-white/30 transition-all duration-300 resize-none"></textarea></div>
-                            <div><button class="mx-auto inline-block bg-white text-blue-600 py-4 px-8 rounded-2xl font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 flex items-center justify-center shadow-lg text-lg">Start the Conversation<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right ml-2 h-5 w-5" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></button></div>
+                            <div data-slot="card" class="text-card-foreground flex flex-col gap-2 sm:gap-4 rounded-xl border py-0 shadow-sm bg-muted/30">
+                                <div data-slot="card-content" class="md:px-4 flex items-start gap-4 p-6">
+                                    <div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone size-6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div>
+                                    <div>
+                                        <h3 class="font-semibold mb-1">Phone</h3>
+                                        <p class="text-sm text-muted-foreground">+61 2 1111 2222</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-slot="card" class="bg-muted/30 text-card-foreground flex flex-col gap-2 sm:gap-4 rounded-xl border py-0 shadow-sm">
+                                <div data-slot="card-content" class="md:px-4 flex items-start gap-4 p-6">
+                                    <div class="flex size-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin size-6"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+                                    <div>
+                                        <h3 class="font-semibold mb-1">Address</h3>
+                                        <p class="text-sm text-muted-foreground">Syndey, NSW 2000 australia</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="mt-10 text-center">
-                            <p class="text-blue-100 mb-4">Happy with our service? We'd love to hear from you!</p>
-                            <a href="" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star w-5 h-5 fill-current"
-                                    aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg><span>Leave a Review</span></a>
+                        <div class="rounded-xl border bg-muted/30 p-6">
+                            <h3 class="font-semibold mb-2">Business Hours</h3>
+                            <div class="space-y-1 text-sm text-muted-foreground">
+                                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                                <p>Saturday: 10:00 AM - 4:00 PM</p>
+                                <p>Sunday: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative ">
+                        <div class="relative ">
+                            <div class="absolute inset-0 bg-gradient-to-r from-[#1667ad] to-[#115199] rounded-3xl opacity-50 blur-lg "></div>
+                            <div class="relative bg-gradient-to-r from-[#1667ad] to-[#115199] rounded-xl p-4 md:p-8 shadow-2xl ">
+                                <div class="text-center mb-10 ">
+                                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 ">Ready to Find Your Flow?</h2>
+                                    <p class="text-medium md:text-lg text-blue-100 max-w-3xl mx-auto ">Let's start a conversation about your business and explore how AI and automation can transform your operations.</p>
+                                </div>
+                                <div class="space-y-4 ">
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 ">
+                                        <div><input type="text " id="name " placeholder="Your Name " required=" " class="w-full px-6 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl text-white placeholder-blue-50 focus:ring-2 focus:ring-white/50
+            focus:border-white/30 transition-all duration-300 " name="name"></div>
+                                        <div><input type="email " id="email " placeholder="Email Address " required=" " class="w-full px-6 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl text-white placeholder-blue-50 focus:ring-2 focus:ring-white/50
+            focus:border-white/30 transition-all duration-300 " name="email "></div>
+                                    </div>
+                                    <div><input type="text " id="company " placeholder="Company Name " class="w-full px-6 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl text-white placeholder-blue-50 focus:ring-2 focus:ring-white/50 focus:border-white/30
+            transition-all duration-300 " name="company "></div>
+                                    <div><textarea id="message " name="message " rows="5 " placeholder="Tell me about your business and what you 'd like to achieve..." class="w-full px-6 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl text-white placeholder-blue-50 focus:ring-2 focus:ring-white/50 focus:border-white/30 transition-all duration-300 resize-none"></textarea></div>
+                                    <div><button class="mx-auto inline-block bg-white text-blue-600 py-4 px-8 rounded-2xl font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 flex items-center justify-center shadow-lg text-lg">Start the Conversation<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right ml-2 h-5 w-5" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></button></div>
+                                </div>
+                                <div class="mt-5 text-center">
+                                    <p class="text-blue-100 mb-4">Happy with our service? We'd love to hear from you!</p>
+                                    <a href="" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star w-5 h-5 fill-current"
+                                            aria-hidden="true"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg><span>Leave a Review</span></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <footer class="relative border-t bg-gradient-to-br from-gray-50 to-blue-50 overflow-hidden">
+            <!-- Decorative background elements -->
+            <div class="absolute inset-0 opacity-5">
+                <div class="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-br from-[#1667ad] to-[#115199] rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-br from-[#115199] to-[#1667ad] rounded-full blur-3xl"></div>
+            </div>
+
+            <div class="relative mx-auto max-w-7xl px-4 pt-10 pb-8 sm:px-6 lg:px-8">
+
+
+
+                <!-- Bottom Bar -->
+                <div class=" flex flex-col md:flex-row items-center justify-between gap-4">
+                    <p class="text-gray-600 text-sm">
+                        © 2026 <span class="font-semibold bg-gradient-to-r from-[#1667ad] to-[#115199] bg-clip-text text-transparent">AIFlowSync</span>. All rights reserved.
+                    </p>
+                    <div class="flex flex-wrap items-center justify-center gap-6 text-sm">
+                        <div class="flex gap-3">
+                            <a class="group flex size-11 items-center justify-center rounded-xl border-2 border-gray-200 bg-white transition-all duration-300 hover:border-[#1667ad] hover:bg-gradient-to-br hover:from-[#1667ad] hover:to-[#115199] hover:shadow-lg hover:shadow-[#1667ad]/20 hover:-translate-y-1"
+                                href="#" aria-label="Facebook">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5 text-gray-600 group-hover:text-white transition-colors">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                            </a>
+                            <a class="group flex size-11 items-center justify-center rounded-xl border-2 border-gray-200 bg-white transition-all duration-300 hover:border-[#1667ad] hover:bg-gradient-to-br hover:from-[#1667ad] hover:to-[#115199] hover:shadow-lg hover:shadow-[#1667ad]/20 hover:-translate-y-1"
+                                href="#" aria-label="Instagram">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5 text-gray-600 group-hover:text-white transition-colors">
+                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                        </svg>
+                            </a>
+                            <a class="group flex size-11 items-center justify-center rounded-xl border-2 border-gray-200 bg-white transition-all duration-300 hover:border-[#1667ad] hover:bg-gradient-to-br hover:from-[#1667ad] hover:to-[#115199] hover:shadow-lg hover:shadow-[#1667ad]/20 hover:-translate-y-1"
+                                href="#" aria-label="Twitter">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5 text-gray-600 group-hover:text-white transition-colors">
+                            <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+                        </svg>
+                            </a>
+                            <a class="group flex size-11 items-center justify-center rounded-xl border-2 border-gray-200 bg-white transition-all duration-300 hover:border-[#1667ad] hover:bg-gradient-to-br hover:from-[#1667ad] hover:to-[#115199] hover:shadow-lg hover:shadow-[#1667ad]/20 hover:-translate-y-1"
+                                href="#" aria-label="LinkedIn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-5 text-gray-600 group-hover:text-white transition-colors">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect width="4" height="12" x="2" y="9"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
     </div>
+    <!--JAVASCRIPT CODE-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!--JAVASCRIPT CODE-->
+    <script>
+        var swiper = new Swiper(".progress-slide-carousel", {
+            slidesPerView: 3,
+            spaceBetween: 20,
+            loop: true,
+            fraction: true,
+            autoplay: {
+                delay: 0, // Zero delay for seamless transition
+                disableOnInteraction: false,
+            },
+            speed: 6000,
+            navigation: {
+                nextEl: ".multiple-slide-carousel .swiper-button-next",
+                prevEl: ".multiple-slide-carousel .swiper-button-prev",
+            },
+            breakpoints: {
+                1920: {
+                    slidesPerView: 5.5,
+                    spaceBetween: 30
+                },
+                1028: {
+                    slidesPerView: 5,
+                    spaceBetween: 30
+                },
+                990: {
+                    slidesPerView: 4,
+                    spaceBetween: 0
+                }
+            }
+        });
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const toggleBtn = document.getElementById('menu-toggle');
