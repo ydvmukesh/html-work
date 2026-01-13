@@ -35,14 +35,27 @@
         position: relative;
     }
     
-    .glass-menu {
-        @apply bg-blue-500/10 backdrop-blur-md border border-blue-400/20 rounded-xl px-4 py-2 text-gray-800 hover: bg-blue-500/20 hover: text-blue-700 transition-all duration-300 shadow-sm hover: shadow-md;
+    .header-new {
+        position: relative;
+        background: rgb(1 44 215 / 53%);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+    }
+    
+    .header-new:before {
+        position: absolute;
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: linear-gradient(207deg, #012cd7, rgb(255 255 255 / 41%));
+        pointer-events: none;
     }
 </style>
 
 <body>
     <div class="min-h-screen bg-white">
-        <header class="bg-white shadow-sm sticky top-0 z-50 bg-gradient-to-r from-[#1667ad]/30 to-[#115199]/30  border border-blue-100">
+        <header class="bg-white shadow-sm sticky top-0 z-50 bg-gradient-to-r from-[#1667ad]/30 to-[#115199]/30  border border-blue-100 header-new ">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center py-4">
 
