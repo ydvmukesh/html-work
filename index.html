@@ -34,24 +34,28 @@
         transition-timing-function: linear !important;
         position: relative;
     }
+    
+    .glass-menu {
+        @apply bg-blue-500/10 backdrop-blur-md border border-blue-400/20 rounded-xl px-4 py-2 text-gray-800 hover: bg-blue-500/20 hover: text-blue-700 transition-all duration-300 shadow-sm hover: shadow-md;
+    }
 </style>
 
 <body>
     <div class="min-h-screen bg-white">
-        <header class="bg-white shadow-sm sticky top-0 z-50">
+        <header class="bg-white shadow-sm sticky top-0 z-50 bg-gradient-to-r from-[#1667ad]/30 to-[#115199]/30  border border-blue-100">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center py-4">
 
                     <!-- Logo + Tagline -->
                     <div class="flex items-center gap-3">
-                        <img src="Aiflowsync-logo.png" alt="AI Flow Sync" class="w-[40px] md:w-[70px]">
-                        <!-- <img src="logo2.jpeg" alt="AI Flow Sync" class="w-[40px] md:w-[70px]"> -->
-                        <div class="hidden sm:block">
+                        <!-- <img src="Aiflowsync-logo.png" alt="AI Flow Sync" class="w-[40px] md:w-[70px]"> -->
+                        <img src="logo2.jpeg" alt="AI Flow Sync" class="w-[40px] md:w-[100px]">
+                        <!-- <div class="hidden sm:block">
                             <p class="text-sm text-gray-600 leading-tight">
                                 Automate Smarter.<br>
                                 <span class="font-semibold text-blue-700">Grow Faster.</span>
                             </p>
-                        </div>
+                        </div> -->
                     </div>
 
                     <!-- Desktop Menu -->
@@ -85,8 +89,8 @@
         <!-- Hero Section -->
         <section class="relative py-16 overflow-hidden flex items-center ">
             <div class="absolute inset-0 ">
-                <div class="w-full h-full bg-cover bg-center bg-no-repeat " style="background-image:url( './banner.jpg') "></div>
-                <div class="absolute inset-0 bg-black/80 "></div>
+                <div class="w-full h-full bg-cover bg-center bg-no-repeat " style="background-image:url( './image.jpg') "></div>
+                <div class="absolute inset-0 bg-black/75 "></div>
             </div>
             <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 w-full py-12 ">
                 <div class="text-center ">
